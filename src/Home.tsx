@@ -10,7 +10,7 @@ export default function Home() {
       <div className='title'>MPC Fire Water</div>
       <h2>Rules</h2>
       <div>
-        This game is similar to rock paper scissors, but with two extra options:
+        This game is similar to rock paper scissors, but with two extra options: fire and water.
       </div>
       <img style={{ width: 'calc(0.7 * var(--aw))', alignSelf: 'center' }} src={gameDiagramSrc} />
       <h2>How it Works</h2>
@@ -25,7 +25,7 @@ export default function Home() {
         </li>
         <li>Host a session.</li>
         <li>Get your friend to join.</li>
-        <li>Choose between rock/paper/etc.</li>
+        <li>Choose between rock, paper, scissors, fire, or water.</li>
         <li>Result will be calculated.</li>
       </ol>
       <h2>Cryptography</h2>

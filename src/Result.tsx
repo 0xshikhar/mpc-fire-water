@@ -10,25 +10,25 @@ export default function Result() {
 
   const opponentMap = {
     win: {
-      rock: 'scissors, lizard',
-      paper: 'rock, spock',
-      scissors: 'paper, lizard',
-      lizard: 'spock, paper',
-      spock: 'rock, scissors',
+      rock: 'scissors',
+      paper: 'rock',
+      scissors: 'paper',
+      fire: 'rock, paper, scissors',
+      water: 'fire',
     },
     lose: {
-      rock: 'paper, spock',
-      paper: 'scissors, lizard',
-      scissors: 'rock, spock',
-      lizard: 'rock, scissors',
-      spock: 'paper, lizard',
+      rock: 'paper, fire',
+      paper: 'scissors, fire',
+      scissors: 'rock, fire',
+      fire: 'water',
+      water: 'rock, paper, scissors',
     },
     draw: {
       rock: 'rock',
       paper: 'paper',
       scissors: 'scissors',
-      lizard: 'lizard',
-      spock: 'spock',
+      fire: 'fire',
+      water: 'water',
     },
   };
 

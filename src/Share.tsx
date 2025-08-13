@@ -9,8 +9,8 @@ export default function Host() {
       <h1>Share</h1>
       <p>
         Send your friend this url:<br />
-        <a href='https://voltrevo.github.io/mpc-lizard-spock'>
-          https://voltrevo.github.io/mpc-lizard-spock
+        <a href='https://0xshikhar.github.io/mpc-fire-water'>
+          https://0xshikhar.github.io/mpc-fire-water
         </a>
       </p>
       <p>
@@ -20,7 +20,7 @@ export default function Host() {
         <QRCodeCanvas
           style={{ width: '100%', height: 'auto' }}
           bgColor='transparent'
-          value='https://voltrevo.github.io/mpc-lizard-spock'
+          value='https://0xshikhar.github.io/mpc-fire-water'
         />
       </center>
       <p>

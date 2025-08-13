@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div className='title'>MPC Lizard Spock</div>
+      <div className='title'>MPC Fire Water</div>
       <h2>Rules</h2>
       <div>
         This game is similar to rock paper scissors, but with two extra options:
@@ -32,7 +32,7 @@ export default function Home() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7em' }}>
         <div>
           This&nbsp;
-          <a href='https://github.com/voltrevo/mpc-lizard-spock'>
+          <a href='https://github.com/0xshikhar/mpc-fire-water'>
             open source
           </a> app uses&nbsp;
           <a href='https://github.com/voltrevo/mpc-framework'>

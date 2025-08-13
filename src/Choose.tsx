@@ -13,8 +13,8 @@ export default function Choose() {
       <Choice selection={selection} setSelection={setSelection} type='rock' />
       <Choice selection={selection} setSelection={setSelection} type='paper' />
       <Choice selection={selection} setSelection={setSelection} type='scissors' />
-      <Choice selection={selection} setSelection={setSelection} type='lizard' />
-      <Choice selection={selection} setSelection={setSelection} type='spock' />
+      <Choice selection={selection} setSelection={setSelection} type='fire' />
+      <Choice selection={selection} setSelection={setSelection} type='water' />
       <div style={{ marginBottom: '3em' }}>
         {selection !== undefined && <>
           <button

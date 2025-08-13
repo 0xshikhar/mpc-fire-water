@@ -20,7 +20,7 @@ type PageKind =
   | 'Result'
   | 'Error';
 
-export type GameOption = 'rock' | 'paper' | 'scissors' | 'lizard' | 'spock';
+export type GameOption = 'rock' | 'paper' | 'scissors' | 'fire' | 'water';
 
 const rtcConfig = (() => {
   const envVar = import.meta.env.VITE_RTC_CONFIGURATION;

@@ -6,10 +6,10 @@ export default function getEmoji(emoji: string): string {
     return '✂️';
   case 'paper':
     return '📄';
-  case 'lizard':
-    return '🦎';
-  case 'spock':
-    return '🖖';
+  case 'fire':
+    return '🔥';
+  case 'water':
+    return '💧';
   default:
     return '';
   }

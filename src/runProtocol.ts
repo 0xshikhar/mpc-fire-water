@@ -46,8 +46,8 @@ export default async function runProtocol(
     rock: 1,
     paper: 2,
     scissors: 3,
-    lizard: 4,
-    spock: 5,
+    fire: 4,
+    water: 5,
   };
 
   const input = optionMap[choice];

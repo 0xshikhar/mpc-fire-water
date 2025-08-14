@@ -10,9 +10,9 @@ export default function Result() {
 
   const opponentMap = {
     win: {
-      rock: 'scissors',
-      paper: 'rock',
-      scissors: 'paper',
+      rock: 'scissors, water',
+      paper: 'rock, water',
+      scissors: 'paper, water',
       fire: 'rock, paper, scissors',
       water: 'fire',
     },

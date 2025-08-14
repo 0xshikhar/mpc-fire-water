@@ -5,13 +5,20 @@ const FIRE = 4;
 const WATER = 5;
 
 const winConditions = [
+  // Traditional Rock Paper Scissors
   [SCISSORS, /* cuts */ PAPER],
   [PAPER, /* covers */ ROCK],
   [ROCK, /* crushes */ SCISSORS],
+  // Fire beats traditional choices
   [FIRE, /* burns */ ROCK],
   [FIRE, /* burns */ PAPER],
   [FIRE, /* burns */ SCISSORS],
+  // Water beats fire
   [WATER, /* extinguishes */ FIRE],
+  // Traditional choices beat water
+  [ROCK, /* crushes */ WATER],
+  [PAPER, /* absorbs */ WATER],
+  [SCISSORS, /* cuts through */ WATER],
 ];
 
 export default (io: Summon.IO) => {

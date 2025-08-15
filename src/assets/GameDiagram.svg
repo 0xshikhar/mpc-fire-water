@@ -1,67 +1,48 @@
-<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+<svg width="640" height="640" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="black"></polygon>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="22" markerHeight="22" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#000"/>
     </marker>
+    <style>
+      .node  { fill:#fff; stroke:#000; stroke-width:3.5; }
+      .edge  { stroke:#000; stroke-width:3; fill:none; marker-end:url(#arrow); }
+      .emoji { font:68px ui-emoji, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji; }
+    </style>
   </defs>
-  
-  <!-- Rock -->
-  <g>
-    <circle cx="250" cy="75" r="55" stroke="black" stroke-width="2.5" fill="white"></circle>
-    <text x="250" y="94.5" text-anchor="middle" font-size="55" font-family="Arial">🪨</text>
-  </g>
-  
-  <!-- Paper -->
-  <g>
-    <circle cx="416.4" cy="195.9" r="55" stroke="black" stroke-width="2.5" fill="white"></circle>
-    <text x="416.4" y="215.4" text-anchor="middle" font-size="55" font-family="Arial">📄</text>
-  </g>
-  
-  <!-- Scissors -->
-  <g>
-    <circle cx="352.9" cy="391.6" r="55" stroke="black" stroke-width="2.5" fill="white"></circle>
-    <text x="352.9" y="411.1" text-anchor="middle" font-size="55" font-family="Arial">✂️</text>
-  </g>
-  
-  <!-- Water -->
-  <g>
-    <circle cx="147.1" cy="391.6" r="55" stroke="black" stroke-width="2.5" fill="white"></circle>
-    <text x="147.1" y="411.1" text-anchor="middle" font-size="55" font-family="Arial">💧</text>
-  </g>
-  
-  <!-- Fire -->
-  <g>
-    <circle cx="83.6" cy="195.9" r="55" stroke="black" stroke-width="2.5" fill="white"></circle>
-    <text x="83.6" y="215.4" text-anchor="middle" font-size="55" font-family="Arial">🔥</text>
-  </g>
-  
-  <!-- Arrows showing who beats whom -->
-  
-  <!-- Rock crushes Scissors -->
-  <line x1="267.0" y1="127.3" x2="332.8" y2="329.8" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
-  
-  <!-- Paper covers Rock -->
-  <line x1="371.9" y1="163.6" x2="302.6" y2="113.2" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
-  
-  <!-- Scissors cuts Paper -->
-  <line x1="369.9" y1="339.3" x2="396.3" y2="257.7" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
-  
-  <!-- Fire burns Rock -->
-  <line x1="128.1" y1="163.6" x2="197.4" y2="113.2" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
-  
-  <!-- Fire burns Paper -->
-  <line x1="138.6" y1="195.9" x2="361.4" y2="195.9" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
-  
-  <!-- Fire burns Scissors -->
-  <line x1="128.1" y1="228.3" x2="300.3" y2="353.4" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
-  
-  <!-- Water extinguishes Fire -->
-  <line x1="147.1" y1="336.6" x2="83.6" y2="250.9" 
-        stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"></line>
+
+  <!-- Regular pentagon (clockwise from top): Rock, Paper, Scissors, Fire, Water -->
+  <circle class="node" cx="300"  cy="100"  r="64"/>   <!-- Rock -->
+  <circle class="node" cx="490.2" cy="238.2" r="64"/> <!-- Paper -->
+  <circle class="node" cx="417.6" cy="461.8" r="64"/> <!-- Scissors -->
+  <circle class="node" cx="182.4" cy="461.8" r="64"/> <!-- Fire -->
+  <circle class="node" cx="109.8" cy="238.2" r="64"/> <!-- Water -->
+
+  <!-- Emojis (slightly nudged up) -->
+  <text class="emoji" x="300"  y="106"   text-anchor="middle" dominant-baseline="middle">🪨</text>
+  <text class="emoji" x="490.2" y="244.2" text-anchor="middle" dominant-baseline="middle">📄</text>
+  <text class="emoji" x="417.6" y="467.8" text-anchor="middle" dominant-baseline="middle">✂️</text>
+  <text class="emoji" x="182.4" y="467.8" text-anchor="middle" dominant-baseline="middle">🔥</text>
+  <text class="emoji" x="109.8" y="244.2" text-anchor="middle" dominant-baseline="middle">💧</text>
+
+  <!-- Edges (winner → loser), endpoints trimmed to r + stroke/2 so tips touch outer edge -->
+  <!-- Rock → Scissors, Water -->
+  <path class="edge" d="M320.324754018042,162.5297279228535 L397.27524598195805,399.2702720771465"/>
+  <path class="edge" d="M246.8086767882549,138.64900561442258 L162.9913232117451,199.5509943855774"/>
+
+  <!-- Paper → Rock, Water -->
+  <path class="edge" d="M437.0086767882549,199.5509943855774 L353.1913232117451,138.64900561442258"/>
+  <path class="edge" d="M424.45,238.2 L175.55,238.2"/>
+
+  <!-- Scissors → Paper, Water -->
+  <path class="edge" d="M437.9047012299587,399.26375764436983 L469.89529877004134,300.73624235563017"/>
+  <path class="edge" d="M364.404684490146,423.1564894476824 L162.99531550985404,276.8435105523176"/>
+
+  <!-- Fire → Rock, Paper, Scissors -->
+  <path class="edge" d="M202.72475401804195,399.2702720771465 L279.6752459819581,162.5297279228535"/>
+  <path class="edge" d="M235.59531550985403,423.15648944768236 L437.00468449014596,276.84351055231764"/>
+  <path class="edge" d="M248.15,461.8 L351.85,461.8"/>
+
+  <!-- Water → Fire -->
+  <path class="edge" d="M130.10470122995864,300.73624235563017 L162.09529877004135,399.26375764436983"/>
 </svg>

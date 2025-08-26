@@ -10,35 +10,36 @@ export default function Choose() {
 
   return (
     <div className='choose-page' style={{ WebkitTapHighlightColor: 'transparent' }}>
-      <Choice selection={selection} setSelection={setSelection} type='rock' />
-      <Choice selection={selection} setSelection={setSelection} type='paper' />
-      <Choice selection={selection} setSelection={setSelection} type='scissors' />
-      <Choice selection={selection} setSelection={setSelection} type='fire' />
-      <Choice selection={selection} setSelection={setSelection} type='water' />
-      <div style={{ marginBottom: '3em' }}>
-        {selection !== undefined && <>
+      <h1>Choose Your Move</h1>
+      
+      <div className='choices-grid'>
+        <Choice selection={selection} setSelection={setSelection} type='rock' />
+        <Choice selection={selection} setSelection={setSelection} type='paper' />
+        <Choice selection={selection} setSelection={setSelection} type='scissors' />
+        <Choice selection={selection} setSelection={setSelection} type='fire' />
+        <Choice selection={selection} setSelection={setSelection} type='water' />
+      </div>
+      
+      <div className='choice-actions'>
+        {selection !== undefined && (
           <button
             className='secondary'
             onClick={() => setSelection(undefined)}
-            style={{
-              width: '100%',
-              lineHeight: '1.1em',
-              marginBottom: '1em',
-            }}
-          >Back to Selection</button>
-        </>}
+          >
+            Back to Selection
+          </button>
+        )}
         <button
           disabled={selection === undefined}
-          style={{ width: '100%', lineHeight: '1.1em' }}
-          className={selection}
           onClick={() => {
             if (selection === undefined) {
               return;
             }
-
             ctx.send(selection);
           }}
-        >{buttonText(selection)}</button>
+        >
+          {buttonText(selection)}
+        </button>
       </div>
     </div>
   );
@@ -57,14 +58,13 @@ function Choice({ selection, setSelection, type }: {
   setSelection: (selection: GameOption | undefined) => void;
   type: GameOption;
 }) {
-  if (selection !== undefined && selection !== type) {
-    return <></>;
-  }
-
   return (
     <div
-      className={`choice ${selection === type && 'selected'} ${type}`}
+      className={`choice ${selection === type ? 'selected' : ''} ${type}`}
       onClick={() => setSelection(selection === type ? undefined : type)}
-    ><div style={{ fontSize: '2.2em' }}>{getEmoji(type)}</div></div>
+      title={capitalize(type)}
+    >
+      {getEmoji(type)}
+    </div>
   );
 }

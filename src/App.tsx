@@ -37,7 +37,7 @@ function App() {
   } else if (page === 'Join') {
     content = <Join />;
   } else if (page === 'Connecting') {
-    content = <h1>Connecting...</h1>;
+    content = <div className="connecting">Connecting to opponent...</div>;
   } else if (page === 'Choose') {
     content = <Choose />;
   } else if (page === 'Waiting') {

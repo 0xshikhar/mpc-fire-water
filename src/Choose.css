@@ -1,35 +1,104 @@
 .choose-page {
   display: flex;
   flex-direction: column;
-  place-content: center;
-  gap: calc(0.1 * var(--aw));
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 2rem;
 }
 
 .choice {
-  text-align: center;
-  font-size: calc(0.1 * var(--aw));
-  border-radius: 100%;
-  width: calc(0.5 * var(--aw));
-  height: calc(0.5 * var(--aw));
-  border: 5px solid transparent;
-  align-self: center;
-  user-select: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
   cursor: pointer;
   display: flex;
-  place-items: center;
-  place-content: center;
-  border: 5px solid black;
-  color: black;
-  opacity: 0.7;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  user-select: none;
+}
+
+.choice:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.choice.rock:hover {
+  border-color: #8b5a3c;
+}
+
+.choice.paper:hover {
+  border-color: #6b7280;
+}
+
+.choice.scissors:hover {
+  border-color: #6b7280;
+}
+
+.choice.fire:hover {
+  border-color: var(--accent-fire);
+}
+
+.choice.water:hover {
+  border-color: var(--accent-water);
 }
 
 .choice.selected {
-  background-color: white;
-  color: black;
-  border: 5px solid black;
-  opacity: 1;
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-xl);
 }
 
-button.😍 {
-  background: #d73253;
+.choice.rock.selected {
+  background: #8b5a3c;
+  border-color: #8b5a3c;
+}
+
+.choice.paper.selected {
+  background: #6b7280;
+  border-color: #6b7280;
+}
+
+.choice.scissors.selected {
+  background: #6b7280;
+  border-color: #6b7280;
+}
+
+.choice.fire.selected {
+  background: var(--accent-fire);
+  border-color: var(--accent-fire);
+}
+
+.choice.water.selected {
+  background: var(--accent-water);
+  border-color: var(--accent-water);
+}
+
+.choice-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.choice-actions button {
+  width: 100%;
 }

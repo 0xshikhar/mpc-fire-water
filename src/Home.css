@@ -1,15 +1,68 @@
 .title {
-  font-size: calc(0.07 * var(--aw));
+  font-size: 3rem;
   text-align: center;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
 }
 
-.main.buttons {
-  text-align: center;
-  padding: 1rem;
+.home-section {
+  margin-bottom: 2.5rem;
 }
 
-.main.buttons :not(:first-child) {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  margin-left: 1rem;
+.home-section:last-child {
+  margin-bottom: 0;
+}
+
+.rules-diagram {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.rules-diagram img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.instruction-list {
+  margin: 1rem 0;
+}
+
+.instruction-list li {
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.cryptography-section {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+.cryptography-section > div {
+  margin-bottom: 1rem;
+}
+
+.cryptography-section > div:last-child {
+  margin-bottom: 0;
+}
+
+.main-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.main-buttons button {
+  flex: 1;
+  max-width: 200px;
+  min-width: 140px;
 }

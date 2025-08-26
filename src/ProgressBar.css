@@ -1,12 +1,35 @@
 .progress-bar {
   width: 100%;
-  background-color: #e0e0df;
+  background: var(--bg-tertiary);
   border-radius: 8px;
   overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  height: 12px;
 }
 
 .progress-bar > div {
-  height: 20px;
-  background-color: #5DA79A;
-  transition: width 100ms;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width 300ms ease-out;
+  position: relative;
+}
+
+.progress-bar > div::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }

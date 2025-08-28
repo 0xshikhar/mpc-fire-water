@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -9,14 +10,14 @@ html {
 
 @supports not (-webkit-touch-callout: none) {
   body {
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 
 body {
   display: flex;
   font-size: 18px;
-  height: var(--vh);
+  min-height: var(--vh);
   overflow-x: hidden;
   overflow-y: auto;
   background-attachment: fixed;
@@ -36,29 +37,37 @@ body {
   --bg-card: #ffffff;
   --border-color: #e2e8f0;
   --border-hover: #cbd5e1;
-  
+
   /* Gaming Accent Colors */
-  --accent-primary: #6366f1; /* Indigo */
-  --accent-secondary: #8b5cf6; /* Violet */
-  --accent-tertiary: #06b6d4; /* Cyan */
-  --accent-fire: #ef4444; /* Red for fire */
-  --accent-water: #3b82f6; /* Blue for water */
-  --accent-success: #10b981; /* Emerald */
-  --accent-warning: #f59e0b; /* Amber */
-  --accent-danger: #ef4444; /* Red */
-  
+  --accent-primary: #6366f1;
+  /* Indigo */
+  --accent-secondary: #8b5cf6;
+  /* Violet */
+  --accent-tertiary: #06b6d4;
+  /* Cyan */
+  --accent-fire: #ef4444;
+  /* Red for fire */
+  --accent-water: #3b82f6;
+  /* Blue for water */
+  --accent-success: #10b981;
+  /* Emerald */
+  --accent-warning: #f59e0b;
+  /* Amber */
+  --accent-danger: #ef4444;
+  /* Red */
+
   /* Text Colors */
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
   --text-accent: #6366f1;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  
+
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-attachment: fixed;
   color: var(--text-primary);
@@ -69,7 +78,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --aw: min(90vw, 500px); /* app width - more responsive */
+  --aw: min(95vw, 1100px);
+  /* app width - wider for desktop */
+}
+
+/* Mobile viewport adjustments */
+@media (max-width: 899px) {
+  :root {
+    --aw: 100vw;
+  }
+
+  body {
+    font-size: 16px;
+  }
 }
 
 #root {
@@ -77,14 +98,30 @@ body {
   flex-direction: column;
   width: var(--aw);
   max-width: var(--aw);
-  margin: 2rem auto;
-  padding: 2rem;
-  box-sizing: border-box;
-  background: var(--bg-card);
-  border-radius: 24px;
+  /* margin: 2rem auto; */
+  /* box-sizing: border-box; */
+  min-height: 100vh;
+  margin: 0;
+
+  /* border-radius: 24px; */
   box-shadow: var(--shadow-xl);
-  border: 1px solid var(--border-color);
-  min-height: calc(100vh - 4rem);
+  min-height: auto;
+  /* overflow-y: visible; */
+  /* overflow-x: hidden; */
+  box-sizing: border-box;
+}
+
+/* Mobile adjustments for root container */
+@media (max-width: 899px) {
+  #root {
+    margin: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    min-height: auto;
+    border-radius: 12px;
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+  }
 }
 
 a {
@@ -117,7 +154,8 @@ h2 {
   letter-spacing: -0.025em;
 }
 
-p, li {
+p,
+li {
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
@@ -192,8 +230,15 @@ button:disabled:hover {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Scrollbar styling */
@@ -213,4 +258,175 @@ button:disabled:hover {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
+}
+
+/* Host and Join page styles */
+.host-container,
+.join-container {
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.host-container h1,
+.join-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.host-container p,
+.join-container p {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* QR Code styling */
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.qr-container canvas {
+  max-width: 350px !important;
+  max-height: 350px !important;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
+}
+
+/* QR Scanner styling */
+.scanner-container {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: #000;
+  max-height: 500px;
+  position: relative;
+}
+
+.scanner-container video {
+  width: 100% !important;
+  max-height: 500px !important;
+  object-fit: cover;
+}
+
+/* QR Scanner overlay with red corner lines */
+.scanner-container::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+}
+
+/* Corner lines for scanning frame */
+
+/* Button styling for Host/Join pages */
+.action-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+/* Input styling */
+.code-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 899px) {
+
+  .host-container,
+  .join-container {
+    padding: 0.75rem;
+    margin: 0;
+  }
+
+  .host-container h1,
+  .join-container h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .qr-container {
+    margin: 1rem 0;
+    padding: 0.75rem;
+  }
+
+  .qr-container canvas {
+    max-width: 220px !important;
+    max-height: 220px !important;
+  }
+
+  .scanner-container {
+    margin: 1rem 0;
+    max-height: 400px;
+  }
+
+  .scanner-container video {
+    max-height: 450px !important;
+  }
+
+  /* Mobile QR Scanner overlay adjustments */
+  .scanner-container::after {
+    width: 150px;
+    height: 150px;
+  }
+
+  .scanner-container::before {
+    width: 150px;
+    height: 150px;
+    background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
+  }
+
+  .action-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .code-input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
 }

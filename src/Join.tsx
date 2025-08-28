@@ -2,6 +2,7 @@ import { Scanner } from '@yudiel/react-qr-scanner';
 import Ctx from './Ctx';
 import { ChangeEvent } from 'react';
 import isKey from './isKey';
+import './index.css';
 
 export default function Join() {
   const ctx = Ctx.use();
@@ -22,21 +23,35 @@ export default function Join() {
   };
 
   return (
-    <div>
+    <div className='join-container'>
       <h1>Join</h1>
       <p>Scan your friend's QR code:</p>
-      <Scanner
-        onResult={(text, _result) => tryJoin(text)}
-        onError={error => console.log(error?.message)}
-        components={{
-          audio: false,
-        }}
-      />
+      <div className='scanner-container'>
+        <Scanner
+          onResult={(text, _result) => tryJoin(text)}
+          onError={error => console.log(error?.message)}
+          components={{
+            audio: false,
+          }}
+          styles={{
+            container: {
+              width: '100%',
+              height: '150%',
+            },
+            video: {
+              width: '100%',
+              height: '150%',
+              objectFit: 'cover',
+            },
+          }}
+        />
+      </div>
       <p>
         Or paste the code here:
         <input
           type='text'
-          style={{ width: '100%' }}
+          className='code-input'
+          placeholder='Enter the code from your friend'
           onInput={(ev: ChangeEvent<HTMLInputElement>) => {
             tryJoin(ev.target.value);
           }}

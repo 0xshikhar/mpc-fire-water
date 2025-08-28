@@ -6,58 +6,59 @@ export default function Home() {
   const ctx = Ctx.use();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div className='title'>MPC Fire Water</div>
-      <h2>Rules</h2>
+    <div className='home'>
       <div>
-        This game is similar to rock paper scissors, but with two extra options:
-        <ul>
-          <li>Fire, which beats everything except water</li>
-          <li>Water, which is beaten by everything except fire</li>
-        </ul>
-      </div>
-      <img style={{ width: 'calc(0.7 * var(--aw))', alignSelf: 'center' }} src={gameDiagramSrc} />
-      <h2>How it Works</h2>
-      <ol style={{ margin: 0 }}>
-        <li>
-          <a href='#' onClick={() => {
-            ctx.page.set('Share');
-          }}>
-            Share
-          </a>
-          &nbsp;this app with your friend.
-        </li>
-        <li>Host a session.</li>
-        <li>Get your friend to join.</li>
-        <li>Choose between rock, paper, scissors, fire, or water.</li>
-        <li>Result will be calculated.</li>
-      </ol>
-      <h2>Cryptography</h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7em' }}>
-        <div>
-          This&nbsp;
-          <a href='https://github.com/0xshikhar/mpc-fire-water'>
-            open source
-          </a> app uses&nbsp;
-          <a href='https://github.com/voltrevo/mpc-framework'>
-            secure MPC
-          </a> to calculate the result while keeping your input secret.
+        <div className='home-container'>
+          <div className='title'>MPC Fire Water</div>
+          <div className='main-buttons'>
+            <button onClick={() => ctx.page.set('Host')} className='p-4'>
+              Host Game
+            </button>
+            <button onClick={() => ctx.page.set('Join')} className='action-button'>
+              Join Game
+            </button>
+          </div>
+          <div className='home-top-row'>
+            <div className='card'>
+              <div className='card-header'>
+                <h2>Rules</h2>
+              </div>
+              <div className='card-body'>
+                <p>This game is similar to rock paper scissors, but with two extra options:</p>
+                <ul>
+                  <li>Fire, which beats everything except water</li>
+                  <li>Water, which is beaten by everything except fire</li>
+                </ul>
+                <div className='rules-diagram'>
+                  <img src={gameDiagramSrc} alt='Game rules diagram' />
+                </div>
+              </div>
+            </div>
+
+            <div className='card'>
+              <div className='card-header'>
+                <h2>How it Works</h2>
+              </div>
+              <div className='card-body'>
+                <ol className='instruction-list'>
+                  <li>
+                    <a href='#' onClick={e => {
+                      e.preventDefault();
+                      ctx.page.set('Share');
+                    }}>
+                      Share
+                    </a>
+                    {' '}this app with your friend.
+                  </li>
+                  <li>Host a session.</li>
+                  <li>Get your friend to join.</li>
+                  <li>Choose between rock, paper, scissors, fire, or water.</li>
+                  <li>Result will be calculated.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          Hopefully that sounds a little strange. That's because it is.
-        </div>
-        <div>
-          The purpose of this app is to open your mind to the power of this
-          counter-intuitive technology.
-        </div>
-      </div>
-      <div className='main buttons'>
-        <button onClick={() => ctx.page.set('Host')}>
-          Host
-        </button>
-        <button onClick={() => ctx.page.set('Join')}>
-          Join
-        </button>
       </div>
     </div>
   );

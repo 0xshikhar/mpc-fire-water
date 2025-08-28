@@ -1,6 +1,7 @@
 # MPC Fire Water
 
-Rock Paper Scissors Fire Water using MPC. 
+Rock Paper Scissors Fire Water using MPC.  
+
 
 Try it: https://mpc-fire-water.vercel.app/
 

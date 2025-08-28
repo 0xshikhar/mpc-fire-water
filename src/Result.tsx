@@ -2,6 +2,7 @@ import capitalize from './capitalize';
 import Ctx from './Ctx';
 import getEmoji from './getEmoji';
 import { useState } from 'react';
+import './Result.css';
 
 export default function Result() {
   const ctx = Ctx.use();
@@ -52,27 +53,24 @@ export default function Result() {
 
   return (
     <div className='result'>
-      <center style={{ fontSize: 'calc(0.3 * var(--aw))' }}>{capitalize(result ?? '')}</center>
-      <div style={{ display: 'flex', placeContent: 'center', fontSize: '2em' }}>
+      <div className={`result-title ${result ?? ''}`}>
+        {capitalize(result ?? '')}
+      </div>
+      <div className='battle-display'>
         <table>
           <tbody>
             <tr>
-              <td style={{ width: '6ch' }}>You:</td>
+              <td>You:</td>
               <td>{getEmoji(choice ?? '')}</td>
             </tr>
             <tr>
-              <td style={{ width: '6ch' }}>Them:</td>
+              <td>Them:</td>
               <td>{opponentOptions.split(', ').map(getEmoji).join(' or ')}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div style={{
-        marginTop: '2rem',
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '1rem',
-      }}>
+      <div className='action-buttons'>
         <button
           className='secondary'
           onClick={() => ctx.endGame()}
@@ -81,7 +79,6 @@ export default function Result() {
           End Game
         </button>
         <button
-          className='primary'
           onClick={handlePlayAgain}
           disabled={loading}
         >

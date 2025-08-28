@@ -1,11 +1,12 @@
 import Ctx from './Ctx';
 import { QRCodeCanvas } from 'qrcode.react';
+import './index.css';
 
 export default function Host() {
   const ctx = Ctx.use();
 
   return (
-    <div>
+    <div className='host-container'>
       <h1>Share</h1>
       <p>
         Send your friend this url:<br />
@@ -16,19 +17,18 @@ export default function Host() {
       <p>
         Or have them scan:
       </p>
-      <center>
+      <div className='qr-container'>
         <QRCodeCanvas
-          style={{ width: '100%', height: 'auto' }}
           bgColor='transparent'
           value='https://0xshikhar.github.io/mpc-fire-water'
         />
-      </center>
+      </div>
       <p>
         Once they have the app, return home and host a session.
       </p>
-      <div className='main buttons'>
-        <button onClick={() => ctx.page.set('Home')}>
-          Home
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <button className='action-button' onClick={() => ctx.page.set('Home')}>
+          Return Home
         </button>
       </div>
     </div>

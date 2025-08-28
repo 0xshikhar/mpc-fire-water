@@ -54,44 +54,56 @@ function App() {
   }
 
   return (
-    <div style={{
+    <div className="app-container" style={{
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       padding: '1rem',
       boxSizing: 'border-box',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
     }}>
-      {/* Main game container */}
-      <div style={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        width: '100%', 
-        maxWidth: 'min(95vw, 800px)',
-        margin: '0 auto',
-        minHeight: 'auto',
-        boxSizing: 'border-box',
-        overflow: 'visible',
-        background: 'rgba(255, 255, 255, 0.95)',
-        borderRadius: '16px',
-        padding: '1.5rem',
-        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)'
-      }}>
-        {content}
-      </div>
-      
-      {/* External cryptography box */}
-      {page === 'Home' && (
+      {/* Main content wrapper */}
         <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           width: '100%',
-          maxWidth: 'min(95vw, 800px)',
-          margin: '2rem auto 0 auto',
-          padding: '0',
-          boxSizing: 'border-box'
+          maxWidth: '1200px',
+          gap: '2rem'
         }}>
-          <Cryptography />
+        {/* Main game container */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            width: '100%', 
+            maxWidth: '1100px',
+            margin: '0 auto',
+            minHeight: 'auto',
+            boxSizing: 'border-box',
+            overflow: 'visible',
+            background: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: '16px',
+            padding: '2rem',
+            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)'
+          }}>
+          {content}
         </div>
-      )}
+        
+        {/* External cryptography box */}
+          {page === 'Home' && (
+            <div style={{
+              width: '100%',
+              maxWidth: '1100px',
+              margin: '0 auto',
+              padding: '0',
+              boxSizing: 'border-box'
+            }}>
+            <Cryptography />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

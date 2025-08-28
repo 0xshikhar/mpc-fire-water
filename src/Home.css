@@ -38,6 +38,7 @@
   gap: 1rem;
   justify-content: center;
   margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -247,11 +248,12 @@
     0 20px 60px rgba(0, 0, 0, 0.15),
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .cryptography-external::before {
@@ -397,13 +399,13 @@
   .cryptography-external {
     margin: 0;
     width: 100%;
-    max-width: 100%;
     padding: 1.25rem;
     border-radius: 16px;
     box-shadow: 
       0 10px 30px rgba(0, 0, 0, 0.1),
       0 4px 15px rgba(0, 0, 0, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
   }
   
   .cryptography-external:hover {
